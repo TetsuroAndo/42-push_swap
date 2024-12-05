@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:35:07 by atomboy           #+#    #+#             */
-/*   Updated: 2024/12/05 14:46:18 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/05 16:42:23 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,30 @@ static int	find_next_token(const char **s, char **start)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	const char	*s = argv[1];
+	const char	*s = av[1];
 	char		*start;
 	char		*program_name;
 	int			i;
 
-	if (argc == 2)
+	if (ac == 2)
 	{
-		program_name = argv[0];
-		argc = ft_count_words(s, ' ') + 1;
-		argv = __builtin_alloca((argc) * sizeof(char *));
-		ft_memset(argv, 0, (argc) * sizeof(char *));
-		argv[0] = program_name;
+		program_name = av[0];
+		ac = ft_count_words(s, ' ') + 1;
+		av = __builtin_alloca((ac) * sizeof(char *));
+		ft_bzero(av, (ac) * sizeof(char *));
+		av[0] = program_name;
 		i = 1;
-		while (*s && i < argc)
+		while (*s && i < ac)
 		{
 			if (!find_next_token(&s, &start))
 				break ;
-			argv[i] = __builtin_alloca(s - start + 1);
-			ft_memcpy(argv[i], start, s - start);
-			argv[i++][s - start] = '\0';
+			av[i] = __builtin_alloca(s - start + 1);
+			ft_memcpy(av[i], start, s - start);
+			av[i++][s - start] = '\0';
 		}
-		argv[i] = NULL;
+		av[i] = NULL;
 	}
-	return (push_swap(argc, argv));
+	return (push_swap(ac, av));
 }

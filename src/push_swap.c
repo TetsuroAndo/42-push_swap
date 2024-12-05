@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 14:30:18 by teando            #+#    #+#             */
-/*   Updated: 2024/12/05 16:41:46 by teando           ###   ########.fr       */
+/*   Created: 2024/12/05 14:57:13 by teando            #+#    #+#             */
+/*   Updated: 2024/12/05 16:41:43 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-# include <limits.h>
-# include <stddef.h>
-
-typedef struct s_stack
+int	push_swap(int ac, char **av)
 {
-	int	*array;
-	int	size;
-	int	capacity;
-}		t_stack;
-
-int		push_swap(int ac, char **av);
-
-#endif
+}
