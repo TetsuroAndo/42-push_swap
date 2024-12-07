@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
@@ -6,25 +6,25 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:30:18 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 01:09:35 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 01:30:45 by teando           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#define PUSH_SWAP_H
 
-# include "libft.h"
-# include <limits.h>
-# include <stdlib.h>
-# include <unistd.h>
+#include "libft.h"
+#include <limits.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 typedef struct s_stacks
 {
-	int	*data;
-	int	a_size;
-	int	b_size;
-	int	total_size;
-}		t_stacks;
+	int *data;
+	int a_size;
+	int b_size;
+	int total_size;
+} t_stacks;
 
 typedef enum e_operation
 {
@@ -39,37 +39,37 @@ typedef enum e_operation
 	OP_RRA,
 	OP_RRB,
 	OP_RRR
-}		t_operation;
+} t_operation;
 
 /* main */
-int		push_swap(int ac, char **av);
+int push_swap(int ac, char **av);
 
 /* parse */
-int		parse_args(int ac, char **av, t_stacks *st);
+int parse_args(int ac, char **av, t_stacks *st);
 
 /* error */
-int		print_error(const char *str);
+int print_error(const char *str);
 
 /* sort */
-void	sort_stack(t_stacks *st);
-void	small_sort_a(t_stacks *st, int size);
-void	five_sort(t_stacks *st);
-int		get_pivots(t_stacks *st, int size, int *p1, int *p2);
+void sort_stack(t_stacks *st);
+void small_sort_a(t_stacks *st, int size);
+void five_sort(t_stacks *st);
+int get_pivots(t_stacks *st, int size, int *p1, int *p2);
 
 /* utils */
-int		is_sorted(t_stacks *st);
+int is_sorted(t_stacks *st);
 
 /* operation */
-void	execute_operation(t_stacks *st, t_operation op);
+void execute_operation(t_stacks *st, t_operation op);
 
 /* ops */
-void	swap_a(t_stacks *st);
-void	swap_b(t_stacks *st);
-void	rotate_a(t_stacks *st);
-void	rotate_b(t_stacks *st);
-void	rrotate_a(t_stacks *st);
-void	rrotate_b(t_stacks *st);
-void	push_a(t_stacks *st);
-void	push_b(t_stacks *st);
+void swap_a(t_stacks *st);
+void swap_b(t_stacks *st);
+void rotate_a(t_stacks *st);
+void rotate_b(t_stacks *st);
+void rrotate_a(t_stacks *st);
+void rrotate_b(t_stacks *st);
+void push_a(t_stacks *st);
+void push_b(t_stacks *st);
 
 #endif

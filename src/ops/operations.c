@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
@@ -6,25 +6,46 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 20:55:05 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 00:23:09 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 01:34:24 by teando           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap.h"
 
-/*
-** 与えられた操作(op)を実行し、必要に応じて表示
-*/
-void	execute_operation(t_stacks *st, t_operation op)
-{
-	static const char	*op_str[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb",
-			"rr", "rra", "rrb", "rrr"};
+#include "push_swap.h"
 
-	static void (*op_func[])(t_stacks *) = {swap_a, swap_b, NULL, push_a,
-		push_b, rotate_a, rotate_b, NULL, rrotate_a, rrotate_b, NULL};
-	if (op_func[op])
-		op_func[op](st);
-	if (op == OP_SS || op == OP_RR || op == OP_RRR)
-		op_func[op + 1](st);
+static void ss(t_stacks *st)
+{
+	swap_a(st);
+	swap_b(st);
+}
+
+static void rr(t_stacks *st)
+{
+	rotate_a(st);
+	rotate_b(st);
+}
+
+static void rrr(t_stacks *st)
+{
+	rrotate_a(st);
+	rrotate_b(st);
+}
+
+void execute_operation(t_stacks *st, t_operation op)
+{
+	static const char *op_str[] = {
+		"sa", "sb", "ss",
+		"pa", "pb",
+		"ra", "rb", "rr",
+		"rra", "rrb", "rrr"};
+
+	static void (*op_func[])(t_stacks *) = {
+		swap_a, swap_b, ss,
+		push_a, push_b,
+		rotate_a, rotate_b, rr,
+		rrotate_a, rrotate_b, rrr};
+
+	op_func[op](st);
 	ft_putendl_fd((char *)op_str[op], STDOUT_FILENO);
 }

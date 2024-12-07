@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   rrotate.c                                          :+:      :+:    :+:   */
@@ -6,21 +6,20 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 22:09:32 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 22:19:55 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 01:42:52 by teando           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap.h"
 
 /*
 ** Aを逆回転 (rra)
 */
-void	rrotate_a(t_stacks *st)
+void rrotate_a(t_stacks *st)
 {
-	int	tmp;
-	int	i;
+	int tmp;
+	int i;
 
-	
 	if (st->a_size > 1)
 	{
 		tmp = st->data[st->a_size - 1];
@@ -37,25 +36,24 @@ void	rrotate_a(t_stacks *st)
 /*
 ** Bを逆回転 (rrb)
 */
-void	rrotate_b(t_stacks *st)
+void rrotate_b(t_stacks *st)
 {
-	int	top_idx;
-	int	bottom_idx;
-	int	tmp;
-	int	i;
+	int start;
+	int end;
+	int tmp;
+	int i;
 
-	
 	if (st->b_size > 1)
 	{
-		top_idx = st->total_size - 1;
-		bottom_idx = top_idx - (st->b_size - 1);
-		tmp = st->data[bottom_idx];
-		i = bottom_idx;
-		while (i < top_idx)
+		start = st->total_size - st->b_size;
+		end = st->total_size - 1;
+		tmp = st->data[end];
+		i = end;
+		while (i > start)
 		{
-			st->data[i] = st->data[i + 1];
-			i++;
+			st->data[i] = st->data[i - 1];
+			i--;
 		}
-		st->data[top_idx] = tmp;
+		st->data[start] = tmp;
 	}
 }
