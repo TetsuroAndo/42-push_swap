@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:37:09 by teando            #+#    #+#              #
-#    Updated: 2024/12/07 21:39:57 by teando           ###   ########.fr        #
+#    Updated: 2024/12/07 22:19:30 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,10 @@ IDFLAGS		:= -I$(INCS_DIR) -I$(LIBFT_DIR)
 SRCS 		:= \
 	$(addprefix src/, \
 		$(addprefix ops/, \
+			push.c \
+			rotate.c \
+			rrotate.c \
+			swap.c \
 		)\
 		$(addprefix sort/, \
 			median.c \

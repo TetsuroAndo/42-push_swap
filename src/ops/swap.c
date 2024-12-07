@@ -1,23 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 20:55:33 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 23:59:49 by teando           ###   ########.fr       */
+/*   Created: 2024/12/07 22:08:34 by teando            #+#    #+#             */
+/*   Updated: 2024/12/07 22:19:57 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stacks *st)
+void	swap_top(int *x, int *y)
 {
-	for (int i = 0; i < st->a_size - 1; i++)
+	int	tmp;
+
+	tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
+
+/*
+** Aスタックの先頭2要素スワップ
+*/
+void	swap_a(t_stacks *st)
+{
+	if (st->a_size > 1)
+		swap_top(&st->data[0], &st->data[1]);
+}
+
+/*
+** Bスタックの先頭2要素スワップ
+*/
+void	swap_b(t_stacks *st)
+{
+	int	top_idx;
+
+	if (st->b_size > 1)
 	{
-		if (st->data[i] > st->data[i + 1])
-			return (0);
+		top_idx = st->total_size - 1;
+		swap_top(&st->data[top_idx], &st->data[top_idx - 1]);
 	}
-	return (1);
 }

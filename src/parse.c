@@ -6,13 +6,13 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 20:54:56 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 21:34:51 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/07 23:56:37 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_valid_number(const char *str)
+static int	is_valid_number(const char *str)
 {
 	int	i;
 
@@ -30,14 +30,20 @@ int	is_valid_number(const char *str)
 	return (1);
 }
 
-int	check_duplicates(t_stacks *st)
+static int	check_duplicates(t_stacks *st)
 {
-	for (int i = 0; i < st->a_size; i++)
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < st->a_size - 1)
 	{
-		for (int j = i + 1; j < st->a_size; j++)
+		j = i + 1;
+		while (j < st->a_size)
 		{
 			if (st->data[i] == st->data[j])
 				return (1);
+			j++;
 		}
 	}
 	return (0);
@@ -45,8 +51,8 @@ int	check_duplicates(t_stacks *st)
 
 int	parse_args(int ac, char **av, t_stacks *st)
 {
-	int i;
-	long val;
+	int		i;
+	long	val;
 
 	i = 1;
 	while (i < ac)

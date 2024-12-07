@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:35:22 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 21:43:33 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/07 23:54:16 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 static void	sort_array(int *arr, int size)
 {
-	int i, j, tmp;
-	for (i = 0; i < size - 1; i++)
+	int	i;
+	int	j;
+	int	tmp;
+
+	i = -1;
+	while (++i < size - 1)
 	{
-		for (j = 0; j < size - i - 1; j++)
+		j = -1;
+		while (++j < size - i - 1)
 		{
 			if (arr[j] > arr[j + 1])
 			{

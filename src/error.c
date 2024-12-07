@@ -6,14 +6,14 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 20:56:14 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 20:57:28 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/07 23:58:00 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	print_error(void)
+int	print_error(const char *str)
 {
-	ft_dprintf(STDERR_FILENO, "Error\n");
+	ft_dprintf(STDERR_FILENO, "Error: %s\n", str);
 	exit(1);
 }

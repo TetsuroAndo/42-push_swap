@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:30:18 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 21:39:13 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/07 23:58:32 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,49 +20,62 @@
 
 typedef struct s_stacks
 {
-	int *data;      // 両スタック(a,b)共通の配列
-	int a_size;     // スタックaに積まれている要素数
-	int b_size;     // スタックbに積まれている要素数
-	int total_size; // 確保した配列の合計サイズ
+	int	*data;
+	int	a_size;
+	int	b_size;
+	int	total_size;
 }		t_stacks;
 
-// main
+typedef enum e_operation
+{
+	OP_SA,
+	OP_SB,
+	OP_SS,
+	OP_PA,
+	OP_PB,
+	OP_RA,
+	OP_RB,
+	OP_RR,
+	OP_RRA,
+	OP_RRB,
+	OP_RRR
+}		t_operation;
+
+/* main */
 int		push_swap(int ac, char **av);
 
-// parse
+/* parse */
 int		parse_args(int ac, char **av, t_stacks *st);
-int		check_duplicates(t_stacks *st);
 
-// error
-int		is_valid_number(const char *str);
-int		print_error(void);
+/* error */
+int		print_error(const char *str);
 
-// command
-void	sa(t_stacks *st, int print);
-void	sb(t_stacks *st, int print);
-void	ss(t_stacks *st, int print);
-void	pa(t_stacks *st, int print);
-void	pb(t_stacks *st, int print);
-void	ra(t_stacks *st, int print);
-void	rb(t_stacks *st, int print);
-void	rr(t_stacks *st, int print);
-void	rra(t_stacks *st, int print);
-void	rrb(t_stacks *st, int print);
-void	rrr(t_stacks *st, int print);
+/* operations */
+void	execute_operation(t_stacks *st, t_operation op);
 
-// sort
+/* sort */
 void	sort_stack(t_stacks *st);
 void	quicksort_like(t_stacks *st, int size);
 
-// small_sort
+/* small_sort */
 void	small_sort_a(t_stacks *st, int size);
 void	simple_three_sort(t_stacks *st);
 void	five_sort(t_stacks *st);
 
-// median
+/* median */
 int		get_pivots(t_stacks *st, int size, int *p1, int *p2);
 
-// utils
+/* utils */
 int		is_sorted(t_stacks *st);
+
+/* ops */
+void	swap_a(t_stacks *st);
+void	swap_b(t_stacks *st);
+void	rotate_a(t_stacks *st);
+void	rotate_b(t_stacks *st);
+void	rrotate_a(t_stacks *st);
+void	rrotate_b(t_stacks *st);
+void	push_a(t_stacks *st);
+void	push_b(t_stacks *st);
 
 #endif
