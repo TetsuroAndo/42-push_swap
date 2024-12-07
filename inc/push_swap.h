@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:30:18 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 23:58:32 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 00:25:11 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define MAX_DEPTH 16
 
 typedef struct s_stacks
 {
@@ -50,9 +52,6 @@ int		parse_args(int ac, char **av, t_stacks *st);
 /* error */
 int		print_error(const char *str);
 
-/* operations */
-void	execute_operation(t_stacks *st, t_operation op);
-
 /* sort */
 void	sort_stack(t_stacks *st);
 void	quicksort_like(t_stacks *st, int size);
@@ -67,6 +66,9 @@ int		get_pivots(t_stacks *st, int size, int *p1, int *p2);
 
 /* utils */
 int		is_sorted(t_stacks *st);
+
+/* operation */
+void	execute_operation(t_stacks *st, t_operation op);
 
 /* ops */
 void	swap_a(t_stacks *st);

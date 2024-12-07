@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:37:16 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 22:19:01 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 00:43:22 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ void	small_sort_a(t_stacks *st, int size)
 		execute_operation(st, OP_SA);
 	else if (size == 3)
 		simple_three_sort(st);
-	else if (size == 4)
-		execute_operation(st, OP_PB);
-	else if (size == 5)
-		execute_operation(st, OP_PB);
 }
 
 void	five_sort(t_stacks *st)

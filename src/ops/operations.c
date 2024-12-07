@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 20:55:05 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 23:51:25 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 00:23:09 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	execute_operation(t_stacks *st, t_operation op)
 	if (op_func[op])
 		op_func[op](st);
 	if (op == OP_SS || op == OP_RR || op == OP_RRR)
-	{
 		op_func[op + 1](st);
-	}
-	ft_putendl_fd((char *)op_str[op], 1);
+	ft_putendl_fd((char *)op_str[op], STDOUT_FILENO);
 }

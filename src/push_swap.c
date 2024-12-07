@@ -6,11 +6,19 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:57:13 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 23:58:19 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 00:14:06 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_stacks *st)
+{
+	for (int i = 0; i < st->a_size - 1; i++)
+		if (st->data[i] > st->data[i + 1])
+			return (0);
+	return (1);
+}
 
 int	push_swap(int ac, char **av)
 {
