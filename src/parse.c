@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 20:54:56 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 00:41:49 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 01:15:10 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	parse_args(int ac, char **av, t_stacks *st)
 	{
 		if (!is_valid_number(av[i]))
 			return (0);
-		val = ft_atol(av[i]);
+		val = ft_strtol(av[i], NULL, 10);
 		if (val > INT_MAX || val < INT_MIN)
 			return (0);
 		st->data[i - 1] = (int)val;

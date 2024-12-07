@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:57:13 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 00:14:06 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 01:05:48 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	push_swap(int ac, char **av)
 	t_stacks	st;
 
 	if (ac < 2)
-		return (0);
+		print_error("Invalid argument");
 	st.total_size = ac - 1;
 	st.a_size = ac - 1;
 	st.b_size = 0;
