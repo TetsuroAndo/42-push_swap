@@ -6,11 +6,10 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:35:07 by atomboy           #+#    #+#             */
-/*   Updated: 2024/12/05 16:42:23 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/07 20:58:12 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
 
 static int	find_next_token(const char **s, char **start)
@@ -36,7 +35,7 @@ int	main(int ac, char **av)
 	{
 		program_name = av[0];
 		ac = ft_count_words(s, ' ') + 1;
-		av = __builtin_alloca((ac) * sizeof(char *));
+		av = __builtin_alloca(sizeof(char *) * ac);
 		ft_bzero(av, (ac) * sizeof(char *));
 		av[0] = program_name;
 		i = 1;

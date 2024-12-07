@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:37:09 by teando            #+#    #+#              #
-#    Updated: 2024/12/05 14:45:47 by teando           ###   ########.fr        #
+#    Updated: 2024/12/07 21:39:57 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,19 @@ IDFLAGS		:= -I$(INCS_DIR) -I$(LIBFT_DIR)
 
 SRCS 		:= \
 	$(addprefix src/, \
+		$(addprefix ops/, \
+		)\
+		$(addprefix sort/, \
+			median.c \
+			small_sort.c \
+			sort.c \
+		)\
+		error.c \
 		main.c \
+		operations.c \
+		parse.c \
+		push_swap.c \
+		utils.c \
 	)
 
 OBJS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.o))
