@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:30:18 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 02:09:05 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 05:46:56 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	three_sort(t_stacks *st);
 void	five_sort(t_stacks *st);
 
 /* utils */
+int		*create_sorted_array(t_stacks *st);
 int		is_sorted(t_stacks *st);
 
 /* operation */

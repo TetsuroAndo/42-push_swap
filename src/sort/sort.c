@@ -6,53 +6,11 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:37:49 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 05:28:35 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 06:01:20 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/**
- * @brief 与えられた配列をバブルソートでソート(単純化のため)
- */
-static void	simple_sort_array(int *arr, int size)
-{
-	int	i;
-	int	j;
-	int	tmp;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		j = 0;
-		while (j < size - i - 1)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-/**
- * @brief スタックAのデータをもとにソート済み配列を作成
- */
-static int	*create_sorted_array(t_stacks *st)
-{
-	int	*sorted;
-
-	sorted = malloc(sizeof(int) * st->a_size);
-	if (!sorted)
-		print_error(": malloc failed in create_sorted_array");
-	ft_memcpy(sorted, st->data, sizeof(int) * st->a_size);
-	simple_sort_array(sorted, st->a_size);
-	return (sorted);
-}
 
 /**
  * @brief タークソートで使用するチャンク数を決定する。
