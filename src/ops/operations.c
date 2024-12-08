@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 20:55:05 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 00:03:28 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 00:15:22 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	execute_operation(t_stacks *st, t_operation op)
 		ft_printf("Error: Duplicates found before %s operation\n", op_str[op]);
 		exit(1);
 	}
+	ft_printf("Command try: %d\n", g_operation_count + 1);
 	//デバッグ: 操作前の配列の状態を表示
 	ft_printf("Before %s:\n", op_str[op]);
 	print_stacks(st);
