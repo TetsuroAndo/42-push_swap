@@ -6,21 +6,12 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 22:08:12 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 03:31:08 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 08:29:06 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/**
- * @brief Bスタックのトップ要素をAスタックにプッシュする
- * @param st t_stacks 構造体
- * @details
- * Bスタックのトップ要素をAスタックにプッシュする。
- * Bスタックのトップ要素をAスタックの先頭に挿入する。
- * スタックの要素を詰める。
- * それぞれのサイズを変更する。
- */
 void	push_btoa(t_stacks *st)
 {
 	int	b_top;
@@ -36,15 +27,6 @@ void	push_btoa(t_stacks *st)
 	st->b_size -= 1;
 }
 
-/**
- * @brief Aスタックのトップ要素をBスタックにプッシュする
- * @param st t_stacks 構造体
- * @details
- * Aスタックのトップ要素をBスタックにプッシュする。
- * Aスタックのトップ要素をBスタックの先頭に挿入する。
- * スタックの要素を詰める。
- * それぞれのサイズを変更する。
- */
 void	push_atob(t_stacks *st)
 {
 	int	b_top;

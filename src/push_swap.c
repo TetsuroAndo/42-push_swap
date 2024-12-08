@@ -6,13 +6,11 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:57:13 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 06:06:04 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 08:27:00 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-extern int g_operation_count; // デバッグ
 
 int	is_sorted(t_stacks *st)
 {
@@ -40,6 +38,5 @@ int	push_swap(int ac, char **av)
 	if (is_sorted(&st))
 		return (0);
 	sort_stack(&st);
-	// ft_printf("Total operations: %d\n", g_operation_count); // デバッグ
 	return (0);
 }

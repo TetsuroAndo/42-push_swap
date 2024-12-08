@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:30:18 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 05:46:56 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 08:48:02 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,26 @@ typedef struct s_stacks
 	int	total_size;
 }		t_stacks;
 
+typedef struct s_chunk
+{
+	int	*sorted;
+	int	chunk_count;
+	int	chunk_size;
+	int	start_idx;
+	int	end_idx;
+	int	original_a_size;
+}		t_chunk;
+
 typedef enum e_operation
 {
 	OP_SA,
 	OP_SB,
-	OP_SS,
 	OP_PA,
 	OP_PB,
 	OP_RA,
 	OP_RB,
-	OP_RR,
 	OP_RRA,
-	OP_RRB,
-	OP_RRR
+	OP_RRB
 }		t_operation;
 
 /* main */
