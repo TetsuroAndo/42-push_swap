@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:57:13 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 00:03:21 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 01:12:47 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ int	push_swap(int ac, char **av)
 {
 	t_stacks	st;
 
-	ft_printf("ac: %d\n\n", ac); // デバッグ
+	ft_printf("ac: %d\n", ac); // デバッグ
 	if (ac < 2)
-		print_error("Invalid argument");
+		print_error("");
 	st.total_size = ac;
 	st.a_size = st.total_size - 1;
 	st.b_size = 0;
 	st.data = __builtin_alloca(sizeof(int) * st.total_size);
 	if (!parse_args(ac, av, &st))
-		print_error("Invalid argument");
+		print_error("");
 	if (is_sorted(&st))
 		return (0);
 	sort_stack(&st);

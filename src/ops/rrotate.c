@@ -6,15 +6,12 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 22:09:32 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 23:42:43 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 01:07:38 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-** Aを逆回転 (rra)
-*/
 void	rrotate_a(t_stacks *st)
 {
 	int	b_top;
@@ -34,9 +31,6 @@ void	rrotate_a(t_stacks *st)
 	st->data[0] = tmp;
 }
 
-/*
-** Bを逆回転 (rrb)
-*/
 void	rrotate_b(t_stacks *st)
 {
 	int	b_end;

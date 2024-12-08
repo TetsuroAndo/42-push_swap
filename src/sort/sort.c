@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:37:49 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 00:07:59 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 01:11:24 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,9 @@ static int	*get_sorted_array(t_stacks *st)
 	copy = __builtin_alloca(sizeof(int) * st->a_size);
 	if (!copy)
 		print_error(": Allocation failed");
-	i = 0;
-	while (i < st->a_size)
-	{
+	i = -1;
+	while (i++ < st->a_size)
 		copy[i] = st->data[i];
-		i++;
-	}
 	sort_array(copy, st->a_size);
 	return (copy);
 }
@@ -122,13 +119,6 @@ static int	get_max_index_in_b(t_stacks *st)
  */
 static void	rotate_b_to_max(t_stacks *st, int max_idx)
 {
-	int	b_top;
-	int	rot_count;
-
-	b_top = st->total_size - 1;
-	rot_count = (b_top - max_idx) < (max_idx - (st->total_size
-				- st->b_size)) ? b_top - max_idx + 1 : max_idx - (st->total_size
-			- st->b_size);
 	if ((max_idx - (st->total_size - st->b_size)) < (st->b_size / 2))
 	{
 		while (st->total_size - 1 != max_idx)
