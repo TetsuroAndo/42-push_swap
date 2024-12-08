@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:57:13 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 02:52:46 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 05:36:33 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int	push_swap(int ac, char **av)
 	if (is_sorted(&st))
 		return (0);
 	sort_stack(&st);
-	ft_printf("Total operations: %d\n", g_operation_count); // デバッグ
+	// ft_printf("Total operations: %d\n", g_operation_count); // デバッグ
 	return (0);
 }

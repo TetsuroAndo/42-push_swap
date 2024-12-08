@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:37:49 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 04:16:21 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 05:28:35 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	*create_sorted_array(t_stacks *st)
 {
 	int	*sorted;
 
-	sorted = (int *)malloc(sizeof(int) * st->a_size);
+	sorted = malloc(sizeof(int) * st->a_size);
 	if (!sorted)
 		print_error(": malloc failed in create_sorted_array");
 	ft_memcpy(sorted, st->data, sizeof(int) * st->a_size);
@@ -107,35 +107,26 @@ static void	push_chunk_to_b(t_stacks *st, int *sorted, int start_idx,
  */
 static void	push_back_to_a(t_stacks *st)
 {
-	int	max_val;
+	int	index;
 	int	max_idx;
 	int	j;
-	int	val;
 
 	while (st->b_size > 0)
 	{
-		// Bの中で最大値の位置を検索
-		max_val = INT_MIN;
 		max_idx = 0;
 		j = 0;
-		while (j < st->b_size)
+		while (++j < st->b_size)
 		{
-			val = st->data[st->total_size - 1 - j];
-			if (val > max_val)
-			{
-				max_val = val;
+			index = st->total_size - 1;
+			if (st->data[index - j] > st->data[index - max_idx])
 				max_idx = j;
-			}
-			j++;
 		}
-		// max_idxをスタックトップへ持ってくる
-		if (max_idx <= st->b_size / 2)
-			while (max_idx-- > 0) // 上半分にあるならRBで上に持ってくる
+		if (max_idx <= st->b_size / 2) // max_idxをスタックトップへ持ってくる
+			while (max_idx-- > 0)      // 上半分にあるならRBで上に持ってくる
 				execute_operation(st, OP_RB);
 		else
-			while (max_idx++ < st->b_size) // 下半分にあるならRRBで上に持ってくる
-				execute_operation(st, OP_RRB);
-		// 最大値をAへ戻す
+			while (max_idx++ < st->b_size)     // 下半分にあるならRRBで上に持ってくる
+				execute_operation(st, OP_RRB); // 最大値をAへ戻す
 		execute_operation(st, OP_PA);
 	}
 }
@@ -154,22 +145,22 @@ static void	turk_sort(t_stacks *st)
 	int	i;
 	int	start_idx;
 	int	end_idx;
+	int	original_a_size;
 
+	original_a_size = st->a_size;
 	sorted = create_sorted_array(st);
-	chunk_count = get_chunk_count(st->a_size) + 1;
-	chunk_size = st->a_size / chunk_count;
-	// チャンクごとにAからBへ
+	chunk_count = get_chunk_count(original_a_size);
+	chunk_size = original_a_size / chunk_count;
 	i = 0;
 	while (i < chunk_count)
 	{
 		start_idx = i * chunk_size;
 		end_idx = start_idx + chunk_size - 1;
 		if (i == chunk_count - 1)
-			end_idx = st->a_size - 1;
+			end_idx = original_a_size - 1;
 		push_chunk_to_b(st, sorted, start_idx, end_idx);
 		i++;
 	}
-	// BからAへ戻す (最大値から順に戻す)
 	push_back_to_a(st);
 	free(sorted);
 }
