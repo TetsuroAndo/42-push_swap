@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 22:09:32 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 21:27:34 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 23:42:43 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ void	rrotate_a(t_stacks *st)
 	if (st->a_size <= 1)
 		print_error(": Cannot rrotate. A stack is empty");
 	b_top = st->total_size - 1;
-	tmp = st->data[st->a_size];
-	i = -1;
-	while (++i < b_top)
+	tmp = st->data[st->a_size - 1];
+	i = st->a_size - 1;
+	while (i > 0)
 	{
-		st->data[i] = st->data[i + 1];
+		st->data[i] = st->data[i - 1];
+		i--;
 	}
 	st->data[0] = tmp;
 }
@@ -48,10 +49,11 @@ void	rrotate_b(t_stacks *st)
 	b_end = st->total_size - st->b_size;
 	b_top = st->total_size - 1;
 	tmp = st->data[b_end];
-	i = b_top + 1;
-	while (--i > 0)
+	i = b_end;
+	while (i < b_top)
 	{
-		st->data[i] = st->data[i - 1];
+		st->data[i] = st->data[i + 1];
+		i++;
 	}
 	st->data[b_top] = tmp;
 }

@@ -6,11 +6,13 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:57:13 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 21:41:27 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 00:03:21 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+extern int g_operation_count; // デバッグ
 
 int	is_sorted(t_stacks *st)
 {
@@ -26,8 +28,8 @@ int	is_sorted(t_stacks *st)
 int	push_swap(int ac, char **av)
 {
 	t_stacks	st;
-	int			debag_args_size;
 
+	ft_printf("ac: %d\n\n", ac); // デバッグ
 	if (ac < 2)
 		print_error("Invalid argument");
 	st.total_size = ac;
@@ -36,13 +38,9 @@ int	push_swap(int ac, char **av)
 	st.data = __builtin_alloca(sizeof(int) * st.total_size);
 	if (!parse_args(ac, av, &st))
 		print_error("Invalid argument");
-	debag_args_size = sizeof(st.data) / sizeof(st.data[0]);
-	if (st.total_size == debag_args_size)
-		ft_printf("Args OK\n");
-	else
-		ft_printf("Args NG\n");
 	if (is_sorted(&st))
 		return (0);
 	sort_stack(&st);
+	ft_printf("Total operations: %d\n", g_operation_count); // デバッグ
 	return (0);
 }

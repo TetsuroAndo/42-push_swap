@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:30:18 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 20:12:24 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 00:00:01 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int		print_error(const char *str);
 void	sort_stack(t_stacks *st);
 void	small_sort_a(t_stacks *st, int size);
 void	five_sort(t_stacks *st);
-int		get_pivots(t_stacks *st, int size, int *p1, int *p2);
 
 /* utils */
 int		is_sorted(t_stacks *st);

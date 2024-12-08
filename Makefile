@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:37:09 by teando            #+#    #+#              #
-#    Updated: 2024/12/08 00:16:11 by teando           ###   ########.fr        #
+#    Updated: 2024/12/08 22:04:04 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ SRCS 		:= \
 			swap.c \
 		)\
 		$(addprefix sort/, \
-			median.c \
 			small_sort.c \
 			sort.c \
 		)\
