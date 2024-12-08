@@ -6,11 +6,9 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 20:55:05 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 01:34:24 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 02:08:35 by teando           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
-
-#include "push_swap.h"
 
 #include "push_swap.h"
 
