@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   rrotate.c                                          :+:      :+:    :+:   */
@@ -6,54 +6,52 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 22:09:32 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 01:42:52 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 21:27:34 by teando           ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
 ** Aを逆回転 (rra)
 */
-void rrotate_a(t_stacks *st)
+void	rrotate_a(t_stacks *st)
 {
-	int tmp;
-	int i;
+	int	b_top;
+	int	tmp;
+	int	i;
 
-	if (st->a_size > 1)
+	if (st->a_size <= 1)
+		print_error(": Cannot rrotate. A stack is empty");
+	b_top = st->total_size - 1;
+	tmp = st->data[st->a_size];
+	i = -1;
+	while (++i < b_top)
 	{
-		tmp = st->data[st->a_size - 1];
-		i = st->a_size - 1;
-		while (i > 0)
-		{
-			st->data[i] = st->data[i - 1];
-			i--;
-		}
-		st->data[0] = tmp;
+		st->data[i] = st->data[i + 1];
 	}
+	st->data[0] = tmp;
 }
 
 /*
 ** Bを逆回転 (rrb)
 */
-void rrotate_b(t_stacks *st)
+void	rrotate_b(t_stacks *st)
 {
-	int start;
-	int end;
-	int tmp;
-	int i;
+	int	b_end;
+	int	b_top;
+	int	tmp;
+	int	i;
 
-	if (st->b_size > 1)
+	if (st->b_size <= 1)
+		print_error(": Cannot rrotate. B stack is empty");
+	b_end = st->total_size - st->b_size;
+	b_top = st->total_size - 1;
+	tmp = st->data[b_end];
+	i = b_top + 1;
+	while (--i > 0)
 	{
-		start = st->total_size - st->b_size;
-		end = st->total_size - 1;
-		tmp = st->data[end];
-		i = end;
-		while (i > start)
-		{
-			st->data[i] = st->data[i - 1];
-			i--;
-		}
-		st->data[start] = tmp;
+		st->data[i] = st->data[i - 1];
 	}
+	st->data[b_top] = tmp;
 }

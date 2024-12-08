@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 22:08:34 by teando            #+#    #+#             */
-/*   Updated: 2024/12/07 22:19:57 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 20:55:31 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	swap_top(int *x, int *y)
 */
 void	swap_a(t_stacks *st)
 {
-	if (st->a_size > 1)
-		swap_top(&st->data[0], &st->data[1]);
+	if (st->a_size <= 1)
+		print_error(": Cannot swap. A stack is empty");
+	swap_top(&st->data[0], &st->data[1]);
 }
 
 /*
@@ -35,11 +36,10 @@ void	swap_a(t_stacks *st)
 */
 void	swap_b(t_stacks *st)
 {
-	int	top_idx;
+	int	b_top;
 
-	if (st->b_size > 1)
-	{
-		top_idx = st->total_size - 1;
-		swap_top(&st->data[top_idx], &st->data[top_idx - 1]);
-	}
+	if (st->b_size <= 1)
+		print_error(": Cannot swap. B stack is empty");
+	b_top = st->total_size - 1;
+	swap_top(&st->data[b_top], &st->data[b_top - 1]);
 }

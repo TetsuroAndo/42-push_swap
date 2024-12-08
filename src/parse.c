@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
@@ -6,15 +6,15 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 20:54:56 by teando            #+#    #+#             */
-/*   Updated: 2024/12/08 01:45:18 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/08 21:41:43 by teando           ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int is_valid_number(const char *str)
+static int	is_valid_number(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -27,10 +27,10 @@ static int is_valid_number(const char *str)
 	return (1);
 }
 
-static int check_duplicates(t_stacks *st)
+static int	check_duplicates(t_stacks *st)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < st->a_size - 1)
@@ -43,10 +43,10 @@ static int check_duplicates(t_stacks *st)
 	return (0);
 }
 
-int parse_args(int ac, char **av, t_stacks *st)
+int	parse_args(int ac, char **av, t_stacks *st)
 {
-	int i;
-	long val;
+	long	val;
+	int		i;
 
 	i = 0;
 	while (++i < ac)
