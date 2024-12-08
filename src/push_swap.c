@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:57:13 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 01:12:47 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:52:46 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	push_swap(int ac, char **av)
 {
 	t_stacks	st;
 
-	ft_printf("ac: %d\n", ac); // デバッグ
 	if (ac < 2)
 		print_error("");
 	st.total_size = ac;

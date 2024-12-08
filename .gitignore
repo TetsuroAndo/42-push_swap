@@ -4,6 +4,7 @@
 *Test*
 out
 push_swap
+push_swap_visualizer
 
 # Created by https://www.toptal.com/developers/gitignore/api/c
 # Edit at https://www.toptal.com/developers/gitignore?templates=c
