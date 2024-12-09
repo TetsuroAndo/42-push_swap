@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:37:09 by teando            #+#    #+#              #
-#    Updated: 2024/12/09 08:48:28 by teando           ###   ########.fr        #
+#    Updated: 2024/12/09 10:27:26 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,11 +72,8 @@ fclean: clean
 
 re: fclean all
 	
-sub:
-	git submodule update --init --recursive
-
-subup:
-	git submodule update --remote
+lib:
+	git clone https://github.com/TetsuroAndo/42-libft libft
 
 norm:
 	@norminette $(SRCS) $(INCS_DIR)
